@@ -34,10 +34,10 @@ export default function ContactPage() {
 
     return (
         <>
-            <main className="min-h-screen pt-32 pb-20 flex flex-col justify-between">
-                <div className="px-6 md:px-14 flex-1 flex flex-col justify-center">
+            <main className="w-full pt-28 md:pt-36 pb-20 md:pb-32">
+                <div className="px-6 md:px-14 flex flex-col">
                     {/* Massive Title Block */}
-                    <div className="mb-16 md:mb-24">
+                    <div className="mb-12 md:mb-24">
                         <div className="overflow-hidden mb-6">
                             <motion.span
                                 initial={{ y: "100%" }}
@@ -90,15 +90,15 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* Content Split */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-start">
+                    {/* Content Split: Form FIRST on mobile, Side-by-side on desktop */}
+                    <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 md:gap-12 items-start mt-4">
 
-                        {/* Left: Contact Info */}
+                        {/* Left (Desktop) / Bottom (Mobile): Contact Info */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="flex flex-col gap-12"
+                            className="flex flex-col gap-10 md:gap-12 w-full pt-6 md:pt-0 border-t border-[rgba(10,10,10,0.1)] md:border-t-0"
                         >
                             <div>
                                 <span
@@ -117,12 +117,12 @@ export default function ContactPage() {
                                 </span>
                                 <a
                                     href="mailto:hello@canvasspace.in"
-                                    className="text-2xl md:text-3xl font-bold hover:text-[var(--accent-red)] transition-colors duration-300"
-                                    style={{ letterSpacing: "-0.02em" }}
+                                    className="text-xl md:text-3xl font-bold hover:text-[var(--accent-red)] transition-colors duration-300"
+                                    style={{ letterSpacing: "-0.02em", color: "var(--charcoal-ink)" }}
                                 >
                                     hello@canvasspace.in
                                 </a>
-                                <p className="mt-4 text-xl md:text-2xl font-light text-[var(--text-secondary)]">
+                                <p className="mt-2 md:mt-4 text-lg md:text-2xl font-light text-[var(--charcoal-ink)] opacity-80">
                                     +91 99884 23998
                                 </p>
                             </div>
@@ -144,11 +144,12 @@ export default function ContactPage() {
                                 </span>
                                 <p
                                     style={{
-                                        fontSize: "1.2rem",
+                                        fontSize: "1rem",
                                         lineHeight: 1.6,
                                         color: "var(--charcoal-ink)",
                                         fontWeight: 500,
                                     }}
+                                    className="md:text-[1.2rem]"
                                 >
                                     Suite 404, The Brutalist Block, <br />
                                     Chandigarh, India
@@ -156,24 +157,23 @@ export default function ContactPage() {
                             </div>
                         </motion.div>
 
-                        {/* Right: Minimal Form */}
+                        {/* Right (Desktop) / Top (Mobile): Minimal Form */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.7 }}
                             className="w-full"
                         >
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-8 md:gap-10">
                                 <div className="relative">
                                     <input
                                         type="text"
                                         placeholder="NAME"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none font-bold placeholder-[rgba(10,10,10,0.6)]"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
-                                            fontSize: "0.75rem",
                                             letterSpacing: "0.15em",
                                             color: "var(--charcoal-ink)",
                                         }}
@@ -185,10 +185,9 @@ export default function ContactPage() {
                                         placeholder="EMAIL"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none font-bold placeholder-[rgba(10,10,10,0.6)]"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
-                                            fontSize: "0.75rem",
                                             letterSpacing: "0.15em",
                                             color: "var(--charcoal-ink)",
                                         }}
@@ -200,16 +199,16 @@ export default function ContactPage() {
                                         rows={4}
                                         value={formData.details}
                                         onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
-                                            fontSize: "0.75rem",
                                             letterSpacing: "0.15em",
                                             color: "var(--charcoal-ink)",
                                         }}
                                     />
                                 </div>
-                                <div className="flex flex-col gap-4 w-full md:max-w-[400px]">
+
+                                <div className="flex flex-col gap-4 w-full md:max-w-[400px] mt-2">
                                     <motion.button
                                         type="submit"
                                         data-cursor-hover
