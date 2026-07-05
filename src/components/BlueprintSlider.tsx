@@ -3,49 +3,35 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { allProjects } from "@/data/projects";
+import ProjectEmblem from "@/components/ProjectEmblem";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const blueprints = [
-    {
-        src: "/images/blueprint-1.png",
-        title: "LUXURY VILLA — FLOOR PLAN",
-        code: "DWG-A001",
-        description: "Ground floor layout with infinity pool integration",
-    },
-    {
-        src: "/images/blueprint-2.png",
-        title: "MULTI-STORY — SECTION A-A",
-        code: "DWG-A002",
-        description: "Structural cross-section revealing spatial hierarchy",
-    },
-    {
-        src: "/images/blueprint-3.png",
-        title: "COMMERCIAL COMPLEX — SITE",
-        code: "DWG-A003",
-        description: "Master site plan with landscape architecture",
-    },
-    {
-        src: "/images/blueprint-4.png",
-        title: "MODERN RESIDENCE — INTERIOR",
-        code: "DWG-A004",
-        description: "Open-plan living with structural column grid",
-    },
-    {
-        src: "/images/hero-sketch.png",
-        title: "GLASS PAVILION — CONCEPT",
-        code: "DWG-A005",
-        description: "Initial concept sketch exploring verticality",
-    },
-];
 
 export default function BlueprintSlider() {
     const sectionRef = useRef<HTMLElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [progress, setProgress] = useState(0);
+
+    const featuredProjects = allProjects.slice(0, 4);
+
+    // Modal state
+    const [selectedProject, setSelectedProject] = useState<typeof allProjects[0] | null>(null);
+
+    const currentIndex = selectedProject ? featuredProjects.findIndex(p => p.id === selectedProject.id) : -1;
+    const hasNext = currentIndex !== -1 && currentIndex < featuredProjects.length - 1;
+    const hasPrev = currentIndex > 0;
+
+    const handleNext = () => {
+        if (hasNext) setSelectedProject(featuredProjects[currentIndex + 1]);
+    };
+
+    const handlePrev = () => {
+        if (hasPrev) setSelectedProject(featuredProjects[currentIndex - 1]);
+    };
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -67,7 +53,7 @@ export default function BlueprintSlider() {
         const ctx = gsap.context(() => {
             const totalWidth = trackRef.current!.scrollWidth - window.innerWidth;
             // Map the horizontal width to a shorter vertical distance for much faster scrolling
-            const scrollDistance = totalWidth * 0.35;
+            const scrollDistance = totalWidth * 0.45;
 
             gsap.to(trackRef.current, {
                 x: -totalWidth,
@@ -93,11 +79,12 @@ export default function BlueprintSlider() {
             ref={sectionRef}
             className="relative w-full overflow-hidden"
             style={{ minHeight: "100vh" }}
-            id="work"
+            id="featured-slider"
         >
             {/* Top bar with label and progress */}
+            {/* Changed top-0 to py-12 md:top-24 to prevent overlap with Canvas Space fixed header */}
             <div
-                className="absolute top-0 left-0 w-full flex items-center justify-between px-6 md:px-14 py-6"
+                className="absolute w-full flex items-center justify-between px-6 md:px-14 top-24 md:top-32"
                 style={{ zIndex: 10 }}
             >
                 <span
@@ -110,7 +97,7 @@ export default function BlueprintSlider() {
                         opacity: 0.8,
                     }}
                 >
-                    [ 02 — BLUEPRINT VIEWER ]
+                    [ 02 — ARCHITECTURAL CASE STUDIES ]
                 </span>
 
                 {/* Progress indicator */}
@@ -126,7 +113,7 @@ export default function BlueprintSlider() {
                             opacity: 0.8,
                         }}
                     >
-                        {String(Math.floor(progress * blueprints.length) + 1).padStart(2, "0")} / {String(blueprints.length).padStart(2, "0")}
+                        {String(Math.floor(progress * featuredProjects.length) + 1).padStart(2, "0")} / {String(featuredProjects.length).padStart(2, "0")}
                     </span>
                     <div
                         style={{
@@ -160,7 +147,7 @@ export default function BlueprintSlider() {
                     zIndex: 10,
                 }}
             >
-                SCROLL TO EXPLORE BLUEPRINTS
+                SCROLL TO EXPLORE ARCHIVE
             </div>
 
             {/* Horizontal track */}
@@ -169,66 +156,74 @@ export default function BlueprintSlider() {
                 className="blueprint-track items-center gap-0 px-[5vw] md:px-[8vw]"
                 style={{ height: "100vh" }}
             >
-                {blueprints.map((bp, i) => (
-                    <div
+                {featuredProjects.map((project, i) => (
+                    <motion.div
+                        layoutId={`emblem-container-${project.id}`}
                         key={i}
-                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw]"
+                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw] cursor-none"
                         style={{
-                            height: "78vh",
-                            marginRight: i < blueprints.length - 1 ? "5vw" : 0,
+                            height: "65vh",
+                            marginRight: i < featuredProjects.length - 1 ? "5vw" : 0,
+                            marginTop: "8vh",
                         }}
                         onMouseEnter={() => setHoveredIndex(i)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        data-cursor-hover
+                        onClick={() => setSelectedProject(project)}
                     >
-                        <div className="relative w-full h-full overflow-hidden premium-card">
+                        <motion.div layoutId={`emblem-image-${project.id}`} className="relative w-full h-full overflow-hidden premium-card">
                             <Image
-                                src={bp.src}
-                                alt={bp.title}
+                                src={project.cover}
+                                alt={project.title}
                                 fill
-                                className="object-contain gpu-layer"
-                                style={{ filter: "contrast(1.08) brightness(0.98)" }}
+                                className="object-cover transition-transform duration-1000"
+                                style={{
+                                    filter: hoveredIndex === i ? "grayscale(0%)" : "grayscale(100%)",
+                                    transform: hoveredIndex === i ? "scale(1.03)" : "scale(1)"
+                                }}
                             />
+
+                            {/* Heavy Vignette gradient to ensure text readability */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
 
                             {/* Technical info — bottom left */}
                             <div
-                                className="absolute bottom-5 left-5 flex flex-col gap-1"
+                                className="absolute bottom-6 left-6 flex flex-col gap-1"
                                 style={{
                                     fontFamily: "var(--font-mono)",
                                     fontSize: "0.55rem",
                                     letterSpacing: "0.12em",
-                                    color: "var(--charcoal-ink)",
+                                    color: "var(--white-pure)",
                                 }}
                             >
-                                <span style={{ opacity: 0.9, fontWeight: 700, fontSize: "0.6rem" }}>{bp.code}</span>
-                                <span style={{ opacity: 0.8, fontWeight: 500, fontSize: "0.6rem" }}>{bp.title}</span>
+                                <span style={{ opacity: 1, fontWeight: 700, fontSize: "0.6rem" }}>{project.year}</span>
+                                <span style={{ opacity: 0.9, fontWeight: 500, fontSize: "0.8rem", marginTop: "4px" }}>{project.title}</span>
                                 <span
                                     style={{
                                         fontFamily: "var(--font-serif)",
-                                        fontSize: "0.8rem",
+                                        fontSize: "0.9rem",
                                         fontStyle: "italic",
                                         fontWeight: 400,
                                         letterSpacing: "0.02em",
-                                        opacity: 0.7,
+                                        opacity: 0.8,
                                         marginTop: "4px",
                                     }}
                                 >
-                                    {bp.description}
+                                    {project.category}
                                 </span>
                             </div>
 
                             {/* Subtle border */}
                             <div
                                 className="absolute inset-0 pointer-events-none"
-                                style={{ border: "1px solid rgba(10,10,10,0.06)" }}
+                                style={{ border: "1px solid rgba(255,255,255,0.1)" }}
                             />
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 ))}
             </div>
 
             {/* Cursor-following EXPLORE tag */}
-            {hoveredIndex !== null && (
+            {hoveredIndex !== null && !selectedProject && (
                 <motion.div
                     className="fixed pointer-events-none hidden md:block"
                     style={{
@@ -250,10 +245,25 @@ export default function BlueprintSlider() {
                             whiteSpace: "nowrap",
                         }}
                     >
-                        [ EXPLORE 3D ]
+                        [ VIEW ARCHIVE ]
                     </div>
                 </motion.div>
             )}
+
+            {/* Emblem Modal Rendering */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <ProjectEmblem
+                        key="emblem"
+                        project={selectedProject}
+                        onClose={() => setSelectedProject(null)}
+                        onNext={handleNext}
+                        onPrev={handlePrev}
+                        hasNext={hasNext}
+                        hasPrev={hasPrev}
+                    />
+                )}
+            </AnimatePresence>
         </section>
     );
 }
