@@ -48,7 +48,7 @@ export default function ProjectEmblem({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-14"
+            className="fixed inset-0 z-50 flex items-center justify-center md:p-14"
             style={{
                 backgroundColor: "rgba(10, 10, 10, 0.4)",
                 backdropFilter: "blur(12px)",
@@ -61,7 +61,7 @@ export default function ProjectEmblem({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20, transition: { duration: 0.4 } }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[var(--bg-paper)] md:rounded-sm overflow-y-auto md:overflow-hidden"
+                className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[var(--bg-paper)] md:rounded-sm overflow-hidden"
                 style={{
                     boxShadow: "0 40px 100px rgba(0,0,0,0.2)",
                 }}
@@ -96,9 +96,9 @@ export default function ProjectEmblem({
                     </div>
                 </button>
 
-                {/* Left Side: Images Section (Scrollable on desktop, stacked on mobile) */}
+                {/* Left Side: Images Section (Scrollable) */}
                 <div
-                    className="emblem-scrollbar relative w-full md:w-[55%] h-auto md:h-full overflow-visible md:overflow-y-auto overflow-x-hidden p-6 md:p-12 border-b md:border-b-0 md:border-r border-[rgba(10,10,10,0.1)]"
+                    className="emblem-scrollbar relative w-full md:w-[55%] h-[40%] md:h-full overflow-y-auto overflow-x-hidden p-0 md:p-12 border-b md:border-b-0 md:border-r border-[rgba(10,10,10,0.1)]"
                     data-lenis-prevent="true"
                     onWheel={(e) => e.stopPropagation()}
                     onTouchMove={(e) => e.stopPropagation()}
@@ -128,9 +128,9 @@ export default function ProjectEmblem({
                     </div>
                 </div>
 
-                {/* Right Side: Details Section (Sticky mostly on desktop, stacked on mobile) */}
+                {/* Right Side: Details Section (Sticky mostly) */}
                 <div
-                    className="relative w-full md:w-[45%] h-auto md:h-full p-6 md:p-16 flex flex-col justify-center overflow-visible md:overflow-y-auto emblem-scrollbar"
+                    className="relative w-full md:w-[45%] h-[60%] md:h-full p-6 md:p-16 flex flex-col justify-center overflow-y-auto emblem-scrollbar"
                     data-lenis-prevent="true"
                     onWheel={(e) => e.stopPropagation()}
                     onTouchMove={(e) => e.stopPropagation()}

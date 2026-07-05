@@ -226,8 +226,7 @@ export default function Globe() {
                 {/* Right — Globe */}
                 <div
                     ref={containerRef}
-                    className="globe-canvas w-full"
-                    style={{ height: "60vh", minHeight: "400px" }}
+                    className="globe-canvas w-full h-[50vh] md:h-[60vh] min-h-[300px] md:min-h-[400px]"
                     data-cursor-hover
                 />
             </div>

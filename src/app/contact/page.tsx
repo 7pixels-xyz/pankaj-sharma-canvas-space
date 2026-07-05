@@ -105,9 +105,10 @@ export default function ContactPage() {
                                     style={{
                                         fontFamily: "var(--font-mono)",
                                         fontSize: "0.55rem",
+                                        fontWeight: 700,
                                         letterSpacing: "0.2em",
                                         color: "var(--charcoal-ink)",
-                                        opacity: 0.4,
+                                        opacity: 0.7,
                                         display: "block",
                                         marginBottom: "0.8rem",
                                     }}
@@ -131,9 +132,10 @@ export default function ContactPage() {
                                     style={{
                                         fontFamily: "var(--font-mono)",
                                         fontSize: "0.55rem",
+                                        fontWeight: 700,
                                         letterSpacing: "0.2em",
                                         color: "var(--charcoal-ink)",
-                                        opacity: 0.4,
+                                        opacity: 0.7,
                                         display: "block",
                                         marginBottom: "0.8rem",
                                     }}
@@ -168,7 +170,7 @@ export default function ContactPage() {
                                         placeholder="NAME"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none font-bold placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
                                             fontSize: "0.75rem",
@@ -183,7 +185,7 @@ export default function ContactPage() {
                                         placeholder="EMAIL"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.2)] pb-4 focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 resize-none font-bold placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
                                             fontSize: "0.75rem",
@@ -213,7 +215,7 @@ export default function ContactPage() {
                                     animate={status === "error" ? { x: [-10, 10, -10, 10, 0] } : {}}
                                     transition={{ duration: 0.4 }}
                                     className={`self-start mt-4 px-10 py-5 transition-all duration-500 overflow-hidden relative flex items-center justify-center min-w-[200px] ${status === "success" ? "bg-green-600 text-white" :
-                                            "bg-[var(--charcoal-ink)] text-[var(--white-pure)] hover:bg-[var(--accent-red)]"
+                                        "bg-[var(--charcoal-ink)] text-[var(--white-pure)] hover:bg-[var(--accent-red)]"
                                         }`}
                                     disabled={status === "loading" || status === "success"}
                                     style={{

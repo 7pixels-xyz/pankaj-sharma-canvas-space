@@ -148,7 +148,7 @@ export default function Header() {
                         animate={{ clipPath: "inset(0 0 0% 0)" }}
                         exit={{ clipPath: "inset(0 0 100% 0)" }}
                         transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
-                        className="fixed inset-0 flex flex-col items-center justify-center gap-8"
+                        className="fixed inset-0 flex flex-col justify-center px-8 gap-8"
                         style={{
                             zIndex: 45,
                             backgroundColor: "var(--bg-paper)",
@@ -160,16 +160,27 @@ export default function Header() {
                                     initial={{ y: 40, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
-                                    style={{
-                                        fontFamily: "var(--font-display)",
-                                        fontSize: "2.5rem",
-                                        fontWeight: 800,
-                                        letterSpacing: "-0.02em",
-                                        color: (pathname === link.href || (link.href === "/work" && pathname.startsWith("/work"))) ? "var(--accent-red)" : "var(--charcoal-ink)",
-                                    }}
+                                    className="flex items-start gap-4"
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    {link.label}
+                                    <span
+                                        className="font-mono pt-3 opacity-40"
+                                        style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--charcoal-ink)" }}
+                                    >
+                                        [ 0{i + 1} ]
+                                    </span>
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-display)",
+                                            fontSize: "clamp(3.5rem, 13vw, 5rem)",
+                                            fontWeight: 900,
+                                            lineHeight: 0.9,
+                                            letterSpacing: "-0.04em",
+                                            color: (pathname === link.href || (link.href === "/work" && pathname.startsWith("/work"))) ? "var(--accent-red)" : "var(--charcoal-ink)",
+                                        }}
+                                    >
+                                        {link.label}
+                                    </span>
                                 </motion.div>
                             </Link>
                         ))}
