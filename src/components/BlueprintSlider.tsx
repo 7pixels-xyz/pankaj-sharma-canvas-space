@@ -103,10 +103,11 @@ export default function BlueprintSlider() {
                 <span
                     style={{
                         fontFamily: "var(--font-mono)",
-                        fontSize: "0.55rem",
+                        fontSize: "0.6rem",
+                        fontWeight: 700,
                         letterSpacing: "0.2em",
                         color: "var(--charcoal-ink)",
-                        opacity: 0.35,
+                        opacity: 0.8,
                     }}
                 >
                     [ 02 — BLUEPRINT VIEWER ]
@@ -118,10 +119,11 @@ export default function BlueprintSlider() {
                         className="stat-number"
                         style={{
                             fontFamily: "var(--font-mono)",
-                            fontSize: "0.55rem",
+                            fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.1em",
                             color: "var(--charcoal-ink)",
-                            opacity: 0.4,
+                            opacity: 0.8,
                         }}
                     >
                         {String(Math.floor(progress * blueprints.length) + 1).padStart(2, "0")} / {String(blueprints.length).padStart(2, "0")}
@@ -150,10 +152,11 @@ export default function BlueprintSlider() {
                 className="absolute bottom-8 left-1/2 -translate-x-1/2"
                 style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "0.5rem",
+                    fontSize: "0.6rem",
+                    fontWeight: 700,
                     letterSpacing: "0.25em",
                     color: "var(--charcoal-ink)",
-                    opacity: 0.25,
+                    opacity: 0.8,
                     zIndex: 10,
                 }}
             >
@@ -197,17 +200,17 @@ export default function BlueprintSlider() {
                                     color: "var(--charcoal-ink)",
                                 }}
                             >
-                                <span style={{ opacity: 0.6, fontWeight: 700 }}>{bp.code}</span>
-                                <span style={{ opacity: 0.4 }}>{bp.title}</span>
+                                <span style={{ opacity: 0.9, fontWeight: 700, fontSize: "0.6rem" }}>{bp.code}</span>
+                                <span style={{ opacity: 0.8, fontWeight: 500, fontSize: "0.6rem" }}>{bp.title}</span>
                                 <span
                                     style={{
                                         fontFamily: "var(--font-serif)",
-                                        fontSize: "0.7rem",
+                                        fontSize: "0.8rem",
                                         fontStyle: "italic",
-                                        fontWeight: 300,
+                                        fontWeight: 400,
                                         letterSpacing: "0.02em",
-                                        opacity: 0.3,
-                                        marginTop: "2px",
+                                        opacity: 0.7,
+                                        marginTop: "4px",
                                     }}
                                 >
                                     {bp.description}

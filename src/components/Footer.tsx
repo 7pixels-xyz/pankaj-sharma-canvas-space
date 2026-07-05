@@ -97,9 +97,10 @@ export default function Footer() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.25em",
                             color: "var(--charcoal-ink)",
-                            opacity: 0.35,
+                            opacity: 0.8,
                             marginBottom: "2rem",
                         }}
                     >
@@ -203,11 +204,11 @@ export default function Footer() {
                         <h4
                             style={{
                                 fontFamily: "var(--font-mono)",
-                                fontSize: "0.55rem",
+                                fontSize: "0.6rem",
                                 fontWeight: 700,
                                 letterSpacing: "0.2em",
                                 marginBottom: "1.2rem",
-                                opacity: 0.3,
+                                opacity: 0.7,
                             }}
                         >
                             NAVIGATION
@@ -245,11 +246,11 @@ export default function Footer() {
                         <h4
                             style={{
                                 fontFamily: "var(--font-mono)",
-                                fontSize: "0.55rem",
+                                fontSize: "0.6rem",
                                 fontWeight: 700,
                                 letterSpacing: "0.2em",
                                 marginBottom: "1.2rem",
-                                opacity: 0.3,
+                                opacity: 0.7,
                             }}
                         >
                             CONTACT
@@ -258,10 +259,11 @@ export default function Footer() {
                             className="flex flex-col gap-3"
                             style={{
                                 fontFamily: "var(--font-mono)",
-                                fontSize: "0.65rem",
+                                fontSize: "0.85rem",
                                 letterSpacing: "0.05em",
-                                color: "var(--text-secondary)",
-                                lineHeight: 1.8,
+                                color: "var(--charcoal-ink)",
+                                fontWeight: 500,
+                                lineHeight: 2.2,
                             }}
                         >
                             <span>hello@canvasspace.in</span>
@@ -281,9 +283,10 @@ export default function Footer() {
                     style={{
                         borderTop: "1px solid rgba(10,10,10,0.06)",
                         fontFamily: "var(--font-mono)",
-                        fontSize: "0.5rem",
+                        fontSize: "0.55rem",
                         letterSpacing: "0.12em",
-                        opacity: 0.25,
+                        opacity: 0.7,
+                        fontWeight: 600,
                     }}
                 >
                     <span>© 2026 CANVAS SPACE — ALL RIGHTS RESERVED</span>

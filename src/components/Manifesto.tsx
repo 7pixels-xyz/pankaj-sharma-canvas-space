@@ -67,9 +67,10 @@ export default function Manifesto() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.3em",
                             color: "var(--charcoal-ink)",
-                            opacity: 0.3,
+                            opacity: 0.8,
                         }}
                     >
                         OUR PHILOSOPHY

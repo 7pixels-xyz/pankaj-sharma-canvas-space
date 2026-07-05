@@ -149,10 +149,11 @@ export default function Hero() {
                             className="hero-line"
                             style={{
                                 fontFamily: "var(--font-mono)",
-                                fontSize: "0.6rem",
+                                fontSize: "0.65rem",
+                                fontWeight: 700,
                                 letterSpacing: "0.35em",
                                 color: "var(--charcoal-ink)",
-                                opacity: 0.4,
+                                opacity: 0.8,
                             }}
                         >
                             PANKAJ SHARMA PRESENTS

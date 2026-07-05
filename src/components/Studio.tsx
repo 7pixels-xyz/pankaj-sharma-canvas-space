@@ -196,7 +196,7 @@ export default function Studio() {
                                 fontSize: "1rem",
                                 fontStyle: "italic",
                                 color: "var(--text-secondary)",
-                                opacity: 0.7,
+                                opacity: 1,
                             }}
                         >
                             Pankaj Sharma, Lead Architect

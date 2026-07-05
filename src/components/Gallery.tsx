@@ -104,9 +104,10 @@ export default function Gallery() {
                     style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.6rem",
+                        fontWeight: 700,
                         letterSpacing: "0.25em",
                         color: "var(--charcoal-ink)",
-                        opacity: 0.35,
+                        opacity: 0.8,
                     }}
                 >
                     [ 03 — SELECTED WORKS ]
@@ -147,8 +148,9 @@ export default function Gallery() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.15em",
-                            opacity: 0.3,
+                            opacity: 0.7,
                             alignSelf: "flex-end",
                             marginBottom: "0.5em",
                         }}

@@ -42,17 +42,18 @@ export default function NarrativeBreak({
     return (
         <div
             ref={sectionRef}
-            className="w-full py-20 md:py-32 px-6 md:px-14 flex flex-col items-center text-center"
+            className="w-full py-10 md:py-16 px-6 md:px-14 flex flex-col items-center text-center"
         >
             <span
                 className="narrative-line"
                 style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "0.55rem",
+                    fontSize: "0.6rem",
+                    fontWeight: 700,
                     letterSpacing: "0.3em",
                     color: "var(--charcoal-ink)",
-                    opacity: 0.25,
-                    marginBottom: "2rem",
+                    opacity: 0.8,
+                    marginBottom: "1rem",
                 }}
             >
                 {topLabel}
@@ -91,11 +92,12 @@ export default function NarrativeBreak({
                     className="narrative-line"
                     style={{
                         fontFamily: "var(--font-mono)",
-                        fontSize: "0.55rem",
+                        fontSize: "0.6rem",
+                        fontWeight: 700,
                         letterSpacing: "0.2em",
                         color: "var(--text-secondary)",
-                        opacity: 0.3,
-                        marginTop: "2rem",
+                        opacity: 0.8,
+                        marginTop: "1rem",
                     }}
                 >
                     {bottomNote}
