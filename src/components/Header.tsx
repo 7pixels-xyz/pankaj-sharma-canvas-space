@@ -160,15 +160,9 @@ export default function Header() {
                                     initial={{ y: 40, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
-                                    className="flex items-start gap-4"
+                                    className="flex items-start"
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    <span
-                                        className="font-mono pt-3 opacity-40"
-                                        style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--charcoal-ink)" }}
-                                    >
-                                        [ 0{i + 1} ]
-                                    </span>
                                     <span
                                         style={{
                                             fontFamily: "var(--font-display)",

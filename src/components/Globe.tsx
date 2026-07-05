@@ -182,9 +182,10 @@ export default function Globe() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.2em",
                             color: "var(--charcoal-ink)",
-                            opacity: 0.4,
+                            opacity: 0.8,
                             marginBottom: "1.5rem",
                         }}
                     >

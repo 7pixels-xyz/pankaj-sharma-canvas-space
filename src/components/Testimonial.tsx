@@ -50,9 +50,10 @@ export default function Testimonial() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.55rem",
+                            fontWeight: 700,
                             letterSpacing: "0.3em",
                             color: "var(--white-pure)",
-                            opacity: 0.25,
+                            opacity: 0.7,
                         }}
                     >
                         WHAT THEY SAY ABOUT US
@@ -92,9 +93,10 @@ export default function Testimonial() {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "0.6rem",
+                            fontWeight: 700,
                             letterSpacing: "0.2em",
                             color: "var(--white-pure)",
-                            opacity: 0.4,
+                            opacity: 0.8,
                         }}
                     >
                         ARJUN & PRIYA MEHTA

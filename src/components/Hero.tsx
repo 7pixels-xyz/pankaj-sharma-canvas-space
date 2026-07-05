@@ -217,9 +217,10 @@ export default function Hero() {
                 style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.55rem",
+                    fontWeight: 700,
                     letterSpacing: "0.15em",
                     color: "var(--charcoal-ink)",
-                    opacity: 0.35,
+                    opacity: 0.7,
                     zIndex: 3,
                     lineHeight: 1.8,
                 }}
@@ -236,9 +237,10 @@ export default function Hero() {
                 style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.55rem",
+                    fontWeight: 700,
                     letterSpacing: "0.15em",
                     color: "var(--charcoal-ink)",
-                    opacity: 0.35,
+                    opacity: 0.7,
                     zIndex: 3,
                     lineHeight: 1.8,
                 }}
@@ -257,9 +259,10 @@ export default function Hero() {
                     style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.5rem",
+                        fontWeight: 700,
                         letterSpacing: "0.2em",
                         color: "var(--charcoal-ink)",
-                        opacity: 0.3,
+                        opacity: 0.6,
                     }}
                 >
                     SCROLL

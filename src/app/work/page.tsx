@@ -149,7 +149,7 @@ export default function WorkPage() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 1, delay: 0.2 }}
-                                className="font-mono text-[0.65rem] tracking-[0.3em] uppercase opacity-50"
+                                className="font-mono text-[0.65rem] tracking-[0.3em] font-bold uppercase opacity-80"
                             >
                                 Architecture & Interior / 01
                             </motion.span>
@@ -199,7 +199,7 @@ export default function WorkPage() {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="hidden md:flex flex-col items-end text-right"
                     >
-                        <span className="font-mono text-[0.55rem] tracking-[0.2em] uppercase opacity-40 mb-2 block">Archive Context</span>
+                        <span className="font-mono text-[0.55rem] tracking-[0.2em] font-bold uppercase opacity-70 mb-2 block">Archive Context</span>
                         <p className="font-serif text-lg leading-tight w-48 italic opacity-80">
                             A curated selection of our finest architectural and spatial explorations.
                         </p>
@@ -251,7 +251,7 @@ export default function WorkPage() {
 
                             {/* Editorial Content Below Image */}
                             <div className="mt-8 flex flex-col items-start border-t border-black/10 pt-5 relative">
-                                <span className="font-mono text-[0.65rem] tracking-[0.2em] uppercase opacity-50 mb-3 flex w-full justify-between items-center">
+                                <span className="font-mono text-[0.65rem] tracking-[0.2em] font-bold uppercase opacity-80 mb-3 flex w-full justify-between items-center">
                                     <span>{project.category}</span>
                                     <span>{project.year}</span>
                                 </span>

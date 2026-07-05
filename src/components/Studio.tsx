@@ -71,9 +71,10 @@ export default function Studio() {
                     style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.6rem",
+                        fontWeight: 700,
                         letterSpacing: "0.25em",
                         color: "var(--charcoal-ink)",
-                        opacity: 0.35,
+                        opacity: 0.8,
                     }}
                 >
                     [ 01 — THE STUDIO ]
