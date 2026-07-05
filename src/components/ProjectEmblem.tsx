@@ -52,18 +52,22 @@ export default function ProjectEmblem({
             style={{
                 backgroundColor: "rgba(10, 10, 10, 0.4)",
                 backdropFilter: "blur(12px)",
+                willChange: "opacity",
+                WebkitBackdropFilter: "blur(12px)"
             }}
             onClick={onClose}
         >
             <motion.div
                 layoutId={`emblem-container-${project.id}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20, transition: { duration: 0.4 } }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.4 } }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full max-w-7xl h-full flex flex-col md:flex-row bg-[var(--bg-paper)] md:rounded-sm overflow-hidden"
                 style={{
                     boxShadow: "0 40px 100px rgba(0,0,0,0.2)",
+                    willChange: "transform, opacity, border-radius",
+                    transform: "translateZ(0)"
                 }}
                 onClick={(e) => e.stopPropagation()}
             >
@@ -109,6 +113,7 @@ export default function ProjectEmblem({
                             <motion.div
                                 layoutId={`emblem-image-${project.id}`}
                                 className="relative w-full aspect-[4/3] md:rounded-sm overflow-hidden"
+                                style={{ willChange: "transform, border-radius", transform: "translateZ(0)" }}
                             >
                                 <Image
                                     src={project.images[0]}
