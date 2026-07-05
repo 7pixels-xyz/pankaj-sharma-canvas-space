@@ -125,42 +125,53 @@ export default function QuickInquiry() {
                                         />
                                     </div>
 
-                                    {/* Animated Submit Button */}
-                                    <motion.button
-                                        type="submit"
-                                        animate={status === "error" ? { x: [-10, 10, -10, 10, 0] } : {}}
-                                        transition={{ duration: 0.4 }}
-                                        className={`mt-4 w-full flex items-center justify-center p-5 font-mono text-[0.65rem] tracking-[0.2em] transition-all duration-500 overflow-hidden relative ${status === "success" ? "bg-green-600 text-white" :
+                                    <div className="flex flex-col gap-4 mt-4">
+                                        <motion.button
+                                            type="submit"
+                                            animate={status === "error" ? { x: [-10, 10, -10, 10, 0] } : {}}
+                                            transition={{ duration: 0.4 }}
+                                            className={`w-full flex items-center justify-center p-5 font-mono text-[0.65rem] tracking-[0.2em] transition-all duration-500 overflow-hidden relative ${status === "success" ? "bg-green-600 text-white" :
                                                 "bg-[var(--charcoal-ink)] text-white hover:bg-[var(--accent-red)]"
-                                            }`}
-                                        data-cursor-hover
-                                        disabled={status === "loading" || status === "success"}
-                                    >
-                                        <AnimatePresence mode="wait">
-                                            {status === "idle" && (
-                                                <motion.span key="idle" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}>
-                                                    SUBMIT INQUIRY
-                                                </motion.span>
-                                            )}
-                                            {status === "error" && (
-                                                <motion.span key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                                                    REQUIRED FIELDS MISSING
-                                                </motion.span>
-                                            )}
-                                            {status === "loading" && (
-                                                <motion.span key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex gap-2">
-                                                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" />
-                                                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.1s" }} />
-                                                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.2s" }} />
-                                                </motion.span>
-                                            )}
-                                            {status === "success" && (
-                                                <motion.span key="success" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}>
-                                                    ✓ TRANSMITTED
-                                                </motion.span>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.button>
+                                                }`}
+                                            data-cursor-hover
+                                            disabled={status === "loading" || status === "success"}
+                                        >
+                                            <AnimatePresence mode="wait">
+                                                {status === "idle" && (
+                                                    <motion.span key="idle" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}>
+                                                        SUBMIT INQUIRY
+                                                    </motion.span>
+                                                )}
+                                                {status === "error" && (
+                                                    <motion.span key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                                        REQUIRED FIELDS MISSING
+                                                    </motion.span>
+                                                )}
+                                                {status === "loading" && (
+                                                    <motion.span key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex gap-2">
+                                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" />
+                                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.1s" }} />
+                                                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.2s" }} />
+                                                    </motion.span>
+                                                )}
+                                                {status === "success" && (
+                                                    <motion.span key="success" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}>
+                                                        ✓ TRANSMITTED
+                                                    </motion.span>
+                                                )}
+                                            </AnimatePresence>
+                                        </motion.button>
+
+                                        <a
+                                            href="https://wa.me/919988423998?text=Hello%20Canvas%20Space%2C%20I%20would%20like%20to%20discuss%20an%20architectural%20project."
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            data-cursor-hover
+                                            className="w-full flex items-center justify-center p-5 font-mono text-[0.65rem] tracking-[0.2em] transition-all duration-300 border border-[var(--charcoal-ink)] text-[var(--charcoal-ink)] hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"
+                                        >
+                                            [ WHATSAPP DIRECT ↗ ]
+                                        </a>
+                                    </div>
                                 </form>
                             </div>
                         </motion.div>

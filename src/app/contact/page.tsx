@@ -209,46 +209,63 @@ export default function ContactPage() {
                                         }}
                                     />
                                 </div>
-                                <motion.button
-                                    type="submit"
-                                    data-cursor-hover
-                                    animate={status === "error" ? { x: [-10, 10, -10, 10, 0] } : {}}
-                                    transition={{ duration: 0.4 }}
-                                    className={`self-start mt-4 px-10 py-5 transition-all duration-500 overflow-hidden relative flex items-center justify-center min-w-[200px] ${status === "success" ? "bg-green-600 text-white" :
-                                        "bg-[var(--charcoal-ink)] text-[var(--white-pure)] hover:bg-[var(--accent-red)]"
-                                        }`}
-                                    disabled={status === "loading" || status === "success"}
-                                    style={{
-                                        fontFamily: "var(--font-mono)",
-                                        fontSize: "0.65rem",
-                                        letterSpacing: "0.2em",
-                                    }}
-                                >
-                                    <AnimatePresence mode="wait">
-                                        {status === "idle" && (
-                                            <motion.span key="idle" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}>
-                                                SUBMIT INQUIRY
-                                            </motion.span>
-                                        )}
-                                        {status === "error" && (
-                                            <motion.span key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                                                REQUIRED FIELDS MISSING
-                                            </motion.span>
-                                        )}
-                                        {status === "loading" && (
-                                            <motion.span key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex gap-2">
-                                                <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" />
-                                                <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" style={{ animationDelay: "0.1s" }} />
-                                                <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }} />
-                                            </motion.span>
-                                        )}
-                                        {status === "success" && (
-                                            <motion.span key="success" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}>
-                                                ✓ SECURELY TRANSMITTED
-                                            </motion.span>
-                                        )}
-                                    </AnimatePresence>
-                                </motion.button>
+                                <div className="flex flex-col gap-4 w-full md:max-w-[400px]">
+                                    <motion.button
+                                        type="submit"
+                                        data-cursor-hover
+                                        animate={status === "error" ? { x: [-10, 10, -10, 10, 0] } : {}}
+                                        transition={{ duration: 0.4 }}
+                                        className={`w-full px-10 py-5 transition-all duration-500 overflow-hidden relative flex items-center justify-center ${status === "success" ? "bg-green-600 text-white" :
+                                            "bg-[var(--charcoal-ink)] text-[var(--white-pure)] hover:bg-[var(--accent-red)]"
+                                            }`}
+                                        disabled={status === "loading" || status === "success"}
+                                        style={{
+                                            fontFamily: "var(--font-mono)",
+                                            fontSize: "0.65rem",
+                                            letterSpacing: "0.2em",
+                                        }}
+                                    >
+                                        <AnimatePresence mode="wait">
+                                            {status === "idle" && (
+                                                <motion.span key="idle" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }}>
+                                                    SUBMIT INQUIRY
+                                                </motion.span>
+                                            )}
+                                            {status === "error" && (
+                                                <motion.span key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                                    REQUIRED FIELDS MISSING
+                                                </motion.span>
+                                            )}
+                                            {status === "loading" && (
+                                                <motion.span key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex gap-2">
+                                                    <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" />
+                                                    <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" style={{ animationDelay: "0.1s" }} />
+                                                    <span className="w-1.5 h-1.5 bg-[var(--color-paper)] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }} />
+                                                </motion.span>
+                                            )}
+                                            {status === "success" && (
+                                                <motion.span key="success" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}>
+                                                    ✓ SECURELY TRANSMITTED
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.button>
+
+                                    <a
+                                        href="https://wa.me/919988423998?text=Hello%20Canvas%20Space%2C%20I%20would%20like%20to%20discuss%20an%20architectural%20project."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        data-cursor-hover
+                                        className="w-full px-10 py-5 transition-all duration-300 border border-[var(--charcoal-ink)] text-[var(--charcoal-ink)] hover:bg-[#25D366] hover:border-[#25D366] hover:text-white flex items-center justify-center text-center"
+                                        style={{
+                                            fontFamily: "var(--font-mono)",
+                                            fontSize: "0.65rem",
+                                            letterSpacing: "0.2em",
+                                        }}
+                                    >
+                                        [ WHATSAPP DIRECT ↗ ]
+                                    </a>
+                                </div>
                             </form>
                         </motion.div>
 
