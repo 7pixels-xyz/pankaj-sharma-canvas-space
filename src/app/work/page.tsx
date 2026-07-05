@@ -222,7 +222,7 @@ export default function WorkPage() {
                                 delay: (i % 3) * 0.1,
                                 ease: [0.16, 1, 0.3, 1],
                             }}
-                            className={`relative group cursor-none flex flex-col ${project.span}`}
+                            className={`relative group md:cursor-none flex flex-col ${project.span}`}
                             onClick={() => setSelectedProject(project)}
                         >
                             {/* Inner image container */}
@@ -264,7 +264,7 @@ export default function WorkPage() {
                                         {project.title}
                                     </h3>
 
-                                    <span className="font-mono text-[0.55rem] tracking-[0.2em] uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-[0.8s] ease-[0.16,1,0.3,1] absolute right-0">
+                                    <span className="font-mono text-[0.55rem] tracking-[0.2em] uppercase opacity-100 md:opacity-0 -translate-x-0 md:-translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-[0.8s] ease-[0.16,1,0.3,1] absolute right-0">
                                         [ View ]
                                     </span>
                                 </div>
