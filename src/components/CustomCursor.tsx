@@ -57,7 +57,7 @@ export default function CustomCursor() {
         <>
             {/* Crosshair */}
             <motion.div
-                className="fixed top-0 left-0 pointer-events-none z-[9999]"
+                className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9999]"
                 style={{
                     x: springX,
                     y: springY,

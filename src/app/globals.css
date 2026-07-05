@@ -31,8 +31,16 @@
 *,
 *::before,
 *::after {
-  cursor: none !important;
   box-sizing: border-box;
+}
+
+@media (pointer: fine) {
+
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
 }
 
 html {
@@ -184,8 +192,10 @@ h6 {
 }
 
 /* ── Globe canvas ── */
-.globe-canvas canvas {
-  cursor: none !important;
+@media (pointer: fine) {
+  .globe-canvas canvas {
+    cursor: none !important;
+  }
 }
 
 /* ── Preloader ── */
