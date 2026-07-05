@@ -30,7 +30,7 @@ export default function Testimonial() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-28 md:py-44 px-6 md:px-14"
+            className="relative w-full py-16 md:py-44 px-6 md:px-14"
             style={{ backgroundColor: "var(--charcoal-ink)" }}
         >
             {/* Grid overlay on dark bg */}

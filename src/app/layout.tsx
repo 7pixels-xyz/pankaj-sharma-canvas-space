@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased" suppressHydrationWarning>
-      <body className="min-h-screen">
+      <body className="min-h-screen w-full overflow-x-hidden">
         <SmoothScrollProvider>
           <Preloader />
           <CustomCursor />

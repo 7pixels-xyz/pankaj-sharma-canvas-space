@@ -174,7 +174,7 @@ export default function Globe() {
     }, []);
 
     return (
-        <section className="relative w-full py-24 md:py-40 px-6 md:px-12" id="globe-section">
+        <section className="relative w-full py-16 md:py-40 px-6 md:px-12" id="globe-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-0 items-center">
                 {/* Left — Text */}
                 <div>

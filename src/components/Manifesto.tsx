@@ -42,7 +42,7 @@ export default function Manifesto() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-32 md:py-52 px-6 md:px-14 overflow-hidden"
+            className="relative w-full py-20 md:py-52 px-6 md:px-14 overflow-hidden"
         >
             {/* Giant decorative quote mark */}
             <div

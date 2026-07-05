@@ -91,7 +91,7 @@ export default function Footer() {
             </div>
 
             {/* CTA Section */}
-            <div className="px-6 md:px-14 py-20 md:py-32">
+            <div className="px-6 md:px-14 py-16 md:py-32">
                 <div className="text-center max-w-3xl mx-auto footer-reveal">
                     <p
                         style={{

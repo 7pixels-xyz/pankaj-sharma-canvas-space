@@ -63,7 +63,7 @@ export default function Studio() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-28 md:py-44 px-6 md:px-14"
+            className="relative w-full py-16 md:py-44 px-6 md:px-14"
         >
             {/* Label */}
             <div className="studio-reveal mb-16">
