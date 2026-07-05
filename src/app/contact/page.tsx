@@ -123,7 +123,7 @@ export default function ContactPage() {
                                     hello@canvasspace.in
                                 </a>
                                 <p className="mt-4 text-xl md:text-2xl font-light text-[var(--text-secondary)]">
-                                    +91 98XX XXXXXX
+                                    +91 99884 23998
                                 </p>
                             </div>
 
@@ -151,7 +151,7 @@ export default function ContactPage() {
                                     }}
                                 >
                                     Suite 404, The Brutalist Block, <br />
-                                    Pune, Maharashtra, India — 411001
+                                    Chandigarh, India
                                 </p>
                             </div>
                         </motion.div>

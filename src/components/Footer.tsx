@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -267,11 +268,11 @@ export default function Footer() {
                             }}
                         >
                             <span>hello@canvasspace.in</span>
-                            <span>+91 98XX XXXXXX</span>
+                            <span>+91 99884 23998</span>
                             <span>
-                                Pune, Maharashtra
+                                Chandigarh
                                 <br />
-                                India — 411001
+                                India
                             </span>
                         </div>
                     </div>
@@ -290,7 +291,17 @@ export default function Footer() {
                     }}
                 >
                     <span>© 2026 CANVAS SPACE — ALL RIGHTS RESERVED</span>
-                    <span>DESIGNED BY PANKAJ SHARMA</span>
+                    <a href="https://www.7pixels.xyz/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-70 transition-opacity cursor-pointer">
+                        <span>DESIGNED BY</span>
+                        <Image
+                            src="/images/7pixels-logo.png"
+                            alt="7pixels"
+                            width={54}
+                            height={18}
+                            className="object-contain"
+                            style={{ filter: "brightness(0)" }}
+                        />
+                    </a>
                 </div>
             </div>
         </footer>
