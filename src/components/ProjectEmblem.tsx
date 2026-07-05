@@ -96,41 +96,98 @@ export default function ProjectEmblem({
                     </div>
                 </button>
 
-                {/* Left Side: Images Section (Scrollable) */}
+                {/* Left Side: Images Section (Scrollable on Desktop, Unified Scroll on Mobile) */}
                 <div
-                    className="emblem-scrollbar relative w-full md:w-[55%] h-[40%] md:h-full overflow-y-auto overflow-x-hidden p-0 md:p-12 border-b md:border-b-0 md:border-r border-[rgba(10,10,10,0.1)]"
+                    className="emblem-scrollbar relative w-full md:w-[55%] h-full overflow-y-auto overflow-x-hidden p-0 md:p-12 md:border-r border-[rgba(10,10,10,0.1)]"
                     data-lenis-prevent="true"
                     onWheel={(e) => e.stopPropagation()}
                     onTouchMove={(e) => e.stopPropagation()}
                 >
-                    <div className="flex z-10 relative flex-col gap-8 md:gap-16">
-                        {project.images.map((imgSrc, idx) => (
+                    <div className="flex z-10 relative flex-col gap-0 md:gap-16">
+                        {/* HERO IMAGE */}
+                        {project.images.length > 0 && (
                             <motion.div
-                                key={idx}
-                                layoutId={idx === 0 ? `emblem-image-${project.id}` : undefined}
-                                initial={idx !== 0 ? { opacity: 0, y: 50 } : false}
-                                animate={idx !== 0 ? { opacity: 1, y: 0 } : false}
-                                transition={{
-                                    duration: 0.8,
-                                    delay: 0.3 + idx * 0.2,
-                                    ease: [0.16, 1, 0.3, 1],
-                                }}
+                                layoutId={`emblem-image-${project.id}`}
                                 className="relative w-full aspect-[4/3] md:rounded-sm overflow-hidden"
                             >
                                 <Image
-                                    src={imgSrc}
-                                    alt={`${project.title} Image ${idx + 1}`}
+                                    src={project.images[0]}
+                                    alt={`${project.title} Image 1`}
                                     fill
                                     className="object-cover"
                                 />
                             </motion.div>
-                        ))}
+                        )}
+
+                        {/* MOBILE DETAILS (Hidden on Desktop) */}
+                        <div className="md:hidden p-6 md:p-0 border-b border-[rgba(10,10,10,0.1)] mb-8 bg-[var(--bg-paper)] text-left">
+                            <div className="mb-4">
+                                <span
+                                    style={{
+                                        fontFamily: "var(--font-mono)",
+                                        fontSize: "0.65rem",
+                                        letterSpacing: "0.25em",
+                                        color: "var(--accent-red)",
+                                    }}
+                                >
+                                    [ {project.category} ]
+                                </span>
+                            </div>
+                            <h2
+                                style={{
+                                    fontSize: "clamp(2.5rem, 6vw, 4rem)",
+                                    fontWeight: 900,
+                                    lineHeight: 1,
+                                    letterSpacing: "-0.04em",
+                                    color: "var(--charcoal-ink)",
+                                    marginBottom: "1rem",
+                                }}
+                            >
+                                {project.title}
+                            </h2>
+                            <p
+                                style={{
+                                    fontSize: "0.95rem",
+                                    lineHeight: 1.8,
+                                    color: "var(--text-secondary)",
+                                    fontFamily: "var(--font-serif)",
+                                    fontStyle: "italic",
+                                    fontWeight: 400,
+                                }}
+                            >
+                                {project.description}
+                            </p>
+                        </div>
+
+                        {/* REMAINING IMAGES */}
+                        <div className="flex flex-col gap-8 md:gap-16 px-4 md:px-0 pb-16 md:pb-0">
+                            {project.images.slice(1).map((imgSrc, idx) => (
+                                <motion.div
+                                    key={idx + 1}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.3 + (idx + 1) * 0.2,
+                                        ease: [0.16, 1, 0.3, 1],
+                                    }}
+                                    className="relative w-full aspect-[4/3] md:rounded-sm overflow-hidden"
+                                >
+                                    <Image
+                                        src={imgSrc}
+                                        alt={`${project.title} Image ${idx + 2}`}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* Right Side: Details Section (Sticky mostly) */}
+                {/* Right Side: Details Section (Desktop Only) */}
                 <div
-                    className="relative w-full md:w-[45%] h-[60%] md:h-full p-6 md:p-16 flex flex-col justify-center overflow-y-auto emblem-scrollbar"
+                    className="hidden md:flex relative w-[45%] h-full p-16 flex-col justify-center overflow-y-auto emblem-scrollbar"
                     data-lenis-prevent="true"
                     onWheel={(e) => e.stopPropagation()}
                     onTouchMove={(e) => e.stopPropagation()}
@@ -194,11 +251,12 @@ export default function ProjectEmblem({
                                     style={{
                                         fontFamily: "var(--font-mono)",
                                         fontSize: "0.55rem",
-                                        letterSpacing: "0.15em",
+                                        fontWeight: 700,
+                                        letterSpacing: "0.2em",
                                         color: "var(--charcoal-ink)",
-                                        opacity: 0.4,
+                                        opacity: 0.7,
                                         display: "block",
-                                        marginBottom: "0.3rem",
+                                        marginBottom: "0.8rem",
                                     }}
                                 >
                                     LOCATION
@@ -219,11 +277,12 @@ export default function ProjectEmblem({
                                     style={{
                                         fontFamily: "var(--font-mono)",
                                         fontSize: "0.55rem",
-                                        letterSpacing: "0.15em",
+                                        fontWeight: 700,
+                                        letterSpacing: "0.2em",
                                         color: "var(--charcoal-ink)",
-                                        opacity: 0.4,
+                                        opacity: 0.7,
                                         display: "block",
-                                        marginBottom: "0.3rem",
+                                        marginBottom: "0.8rem",
                                     }}
                                 >
                                     YEAR
@@ -244,11 +303,12 @@ export default function ProjectEmblem({
                                     style={{
                                         fontFamily: "var(--font-mono)",
                                         fontSize: "0.55rem",
-                                        letterSpacing: "0.15em",
+                                        fontWeight: 700,
+                                        letterSpacing: "0.2em",
                                         color: "var(--charcoal-ink)",
-                                        opacity: 0.4,
+                                        opacity: 0.7,
                                         display: "block",
-                                        marginBottom: "0.3rem",
+                                        marginBottom: "0.8rem",
                                     }}
                                 >
                                     CLIENT
