@@ -6,13 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function QuickInquiry() {
     const [isOpen, setIsOpen] = useState(false);
     const [status, setStatus] = useState<"idle" | "error" | "loading" | "success">("idle");
-    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Simple validation
-        if (!formData.name || !formData.email || !formData.message) {
+        // Strict validation for Name and Phone
+        if (!formData.name || !formData.phone) {
             setStatus("error");
             setTimeout(() => setStatus("idle"), 800);
             return;
@@ -26,7 +26,7 @@ export default function QuickInquiry() {
                 setIsOpen(false);
                 setTimeout(() => {
                     setStatus("idle");
-                    setFormData({ name: "", email: "", message: "" });
+                    setFormData({ name: "", email: "", phone: "", message: "" });
                 }, 500);
             }, 2500);
         }, 1500);
@@ -108,8 +108,17 @@ export default function QuickInquiry() {
                                     </div>
                                     <div className="relative">
                                         <input
+                                            type="tel"
+                                            placeholder="PHONE *"
+                                            value={formData.phone}
+                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                            className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-mono text-[0.7rem] tracking-[0.1em]"
+                                        />
+                                    </div>
+                                    <div className="relative">
+                                        <input
                                             type="email"
-                                            placeholder="EMAIL *"
+                                            placeholder="EMAIL (OPTIONAL)"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-mono text-[0.7rem] tracking-[0.1em]"

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function ContactPage() {
     const [status, setStatus] = useState<"idle" | "error" | "loading" | "success">("idle");
-    const [formData, setFormData] = useState({ name: "", email: "", details: "" });
+    const [formData, setFormData] = useState({ name: "", email: "", phone: "", details: "" });
 
     // Scroll to top on mount
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function ContactPage() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!formData.name || !formData.email || !formData.details) {
+        if (!formData.name || !formData.phone) {
             setStatus("error");
             setTimeout(() => setStatus("idle"), 800);
             return;
@@ -27,7 +27,7 @@ export default function ContactPage() {
             setStatus("success");
             setTimeout(() => {
                 setStatus("idle");
-                setFormData({ name: "", email: "", details: "" });
+                setFormData({ name: "", email: "", phone: "", details: "" });
             }, 3000);
         }, 1500);
     };
@@ -168,10 +168,24 @@ export default function ContactPage() {
                                 <div className="relative">
                                     <input
                                         type="text"
-                                        placeholder="NAME"
+                                        placeholder="NAME *"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-3 md:pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
+                                        style={{
+                                            fontFamily: "var(--font-mono)",
+                                            letterSpacing: "0.15em",
+                                            color: "var(--charcoal-ink)",
+                                        }}
+                                    />
+                                </div>
+                                <div className="relative">
+                                    <input
+                                        type="tel"
+                                        placeholder="PHONE *"
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                        className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-3 md:pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
                                             letterSpacing: "0.15em",
@@ -182,7 +196,7 @@ export default function ContactPage() {
                                 <div className="relative">
                                     <input
                                         type="email"
-                                        placeholder="EMAIL"
+                                        placeholder="EMAIL (OPTIONAL)"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         className="w-full bg-transparent border-b border-[rgba(10,10,10,0.4)] md:border-[rgba(10,10,10,0.2)] pb-4 text-sm md:text-xs focus:outline-none focus:border-[var(--charcoal-ink)] transition-colors duration-300 font-bold placeholder-[var(--charcoal-ink)] md:placeholder-[rgba(10,10,10,0.6)]"
