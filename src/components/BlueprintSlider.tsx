@@ -154,17 +154,16 @@ export default function BlueprintSlider() {
             {/* Horizontal track */}
             <div
                 ref={trackRef}
-                className="blueprint-track items-center gap-0 px-[5vw] md:px-[8vw] flex overflow-x-auto md:overflow-hidden snap-x snap-mandatory hide-scrollbar"
+                className="blueprint-track items-center gap-0 px-[5vw] md:px-[8vw] flex w-full md:w-max overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar"
                 style={{ height: "100vh" }}
             >
                 {featuredProjects.map((project, i) => (
                     <motion.div
                         layoutId={`emblem-container-${project.id}`}
                         key={i}
-                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw] cursor-none snap-center mr-[5vw] md:mr-0"
+                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw] cursor-none snap-center mr-[5vw] md:mr-[5vw]"
                         style={{
                             height: "65vh",
-                            marginRight: i < featuredProjects.length - 1 ? "5vw" : "5vw",
                             marginTop: "8vh",
                         }}
                         onMouseEnter={() => setHoveredIndex(i)}
