@@ -50,9 +50,10 @@ export default function BlueprintSlider() {
     useEffect(() => {
         if (!sectionRef.current || !trackRef.current) return;
 
-        const ctx = gsap.context(() => {
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
             const totalWidth = trackRef.current!.scrollWidth - window.innerWidth;
-            // Map the horizontal width to a shorter vertical distance for much faster scrolling
             const scrollDistance = totalWidth * 0.45;
 
             gsap.to(trackRef.current, {
@@ -69,9 +70,9 @@ export default function BlueprintSlider() {
                     onUpdate: (self) => setProgress(self.progress),
                 },
             });
-        }, sectionRef);
+        });
 
-        return () => ctx.revert();
+        return () => mm.revert();
     }, []);
 
     return (
@@ -153,17 +154,17 @@ export default function BlueprintSlider() {
             {/* Horizontal track */}
             <div
                 ref={trackRef}
-                className="blueprint-track items-center gap-0 px-[5vw] md:px-[8vw]"
+                className="blueprint-track items-center gap-0 px-[5vw] md:px-[8vw] flex overflow-x-auto md:overflow-hidden snap-x snap-mandatory hide-scrollbar"
                 style={{ height: "100vh" }}
             >
                 {featuredProjects.map((project, i) => (
                     <motion.div
                         layoutId={`emblem-container-${project.id}`}
                         key={i}
-                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw] cursor-none"
+                        className="relative flex-shrink-0 flex items-center justify-center w-[85vw] md:w-[70vw] cursor-none snap-center mr-[5vw] md:mr-0"
                         style={{
                             height: "65vh",
-                            marginRight: i < featuredProjects.length - 1 ? "5vw" : 0,
+                            marginRight: i < featuredProjects.length - 1 ? "5vw" : "5vw",
                             marginTop: "8vh",
                         }}
                         onMouseEnter={() => setHoveredIndex(i)}

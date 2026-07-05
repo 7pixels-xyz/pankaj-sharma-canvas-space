@@ -192,10 +192,19 @@ h6 {
 }
 
 /* ── Globe canvas ── */
-@media (pointer: fine) {
-  .globe-canvas canvas {
-    cursor: none !important;
+@media (hover: none) and (pointer: coarse) {
+  #custom-cursor-root {
+    display: none !important;
   }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ── Preloader ── */

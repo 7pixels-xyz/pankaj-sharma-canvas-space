@@ -58,30 +58,29 @@ export default function NarrativeBreak({
             >
                 {topLabel}
             </span>
-            <div className="overflow-hidden">
+            <div className="relative py-2">
                 <h2
                     className="narrative-line"
                     style={{
-                        fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+                        fontSize: "clamp(1.5rem, 6vw, 3.5rem)",
                         fontWeight: 900,
-                        lineHeight: 1,
+                        lineHeight: 1.1,
                         letterSpacing: "-0.04em",
                     }}
                 >
                     {mainText}
                 </h2>
             </div>
-            <div className="overflow-hidden">
+            <div className="relative py-1">
                 <h2
                     className="narrative-line"
                     style={{
                         fontFamily: "var(--font-serif)",
-                        fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+                        fontSize: "clamp(1.8rem, 7vw, 3.5rem)",
                         fontWeight: 300,
                         fontStyle: "italic",
-                        lineHeight: 1,
+                        lineHeight: 1.1,
                         letterSpacing: "0.01em",
-                        marginTop: "0.15em",
                     }}
                 >
                     {serifText}
